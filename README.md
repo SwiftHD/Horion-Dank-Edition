@@ -1,13 +1,13 @@
-# Horion 
+# Horion Dank Edition
 
-**Horion** is a minecraft bedrock edition utility mod designed to enhance a users gameplay.
+**Horion Dank Edition** is a minecraft bedrock edition utility mod designed to enhance a users gameplay in the dankest way possible.
 If you want to contribute to this project, feel free to fork this repository and submit a pull request.
 
 [![Download the injector](https://img.shields.io/badge/DOWNLOAD-LATEST-brightgreen?style=for-the-badge "Download the injector")](https://horionclient.eu/files/HorionInjector.exe "Download the injector")
 ![](https://img.shields.io/github/downloads/Horionclient/Horion-Releases/total?label=Total%20Injections&style=for-the-badge)
 
 ## Installation
-1. **Download the Injector** or directly download the `.dll` via the label:
+1. **Download the Injector** and directly download the `.dll` via the label:
 [![Latest release](https://img.shields.io/github/v/release/Horionclient/Horion-Releases?include_prereleases&label=Downlad%20the%20latest%20version&sort=semver&style=for-the-badge)](https://github.com/Horionclient/Horion-Releases/releases/latest/)
 
 2. **Launch the injector and press "Inject"** (If you chose to download the dll, put the dev mode switch on and locate the dll manually. Any other Injector may be used for this, too).
