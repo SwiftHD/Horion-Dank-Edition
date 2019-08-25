@@ -186,6 +186,7 @@
     <ClCompile Include="Horion\Module\Modules\Hitbox.cpp" />
     <ClCompile Include="Horion\Module\Modules\InfiniteBlockReach.cpp" />
     <ClCompile Include="Horion\Module\Modules\InfiniteReach.cpp" />
+    <ClCompile Include="Horion\Module\Modules\InfiniteTreasureAura.cpp" />
     <ClCompile Include="Horion\Module\Modules\InstaBreak.cpp" />
     <ClCompile Include="Horion\Module\Modules\InventoryMove.cpp" />
     <ClCompile Include="Horion\Module\Modules\Jesus.cpp" />
@@ -274,6 +275,7 @@
     <ClInclude Include="Horion\Module\Modules\HighJump.h" />
     <ClInclude Include="Horion\Module\Modules\Hitbox.h" />
     <ClInclude Include="Horion\Module\Modules\InfiniteReach.h" />
+    <ClInclude Include="Horion\Module\Modules\InfiniteTreasureAura.h" />
     <ClInclude Include="Horion\Module\Modules\InstaBreak.h" />
     <ClInclude Include="Horion\Module\Modules\InventoryMove.h" />
     <ClInclude Include="Horion\Module\Modules\Jesus.h" />

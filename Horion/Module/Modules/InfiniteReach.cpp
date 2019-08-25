@@ -27,12 +27,21 @@ void findEntities(C_Entity* currentEntity, bool isRegularEntitie) {
 		if (currentEntity == g_Data.getLocalPlayer()) // Skip Local player
 			return;
 
+		if (currentEntity == 0)
+			return;
+
+		if (currentEntity->timeSinceDeath > 0 || currentEntity->damageTime >= 7)
+			return;
+
 		if (FriendList::findPlayer(currentEntity->getNameTag()->getText())) // Skip Friend
+			return;
+
+		if (!Target::isValidTarget(currentEntity))
 			return;
 
 		float dist = (*currentEntity->getPos()).dist(*g_Data.getLocalPlayer()->getPos());
 
-		if (dist < InfiniteReachMod->range)  
+		if (dist < InfiniteReachMod->range)
 		{
 			targetList0.push_back(currentEntity);
 		}
@@ -50,8 +59,8 @@ void InfiniteReach::onTick(C_GameMode* gm)
 
 	g_Data.forEachEntity(findEntities);
 	Odelay++;
-	float calcYaw = (gm->player->yaw + 90) *  (PI / 180);
-	float calcPitch = (gm->player->pitch)  * -(PI / 180);
+	float calcYaw = (gm->player->yaw + 90) * (PI / 180);
+	float calcPitch = (gm->player->pitch) * -(PI / 180);
 
 	if (targetList0.size() > 0 && Odelay >= delay)
 	{
@@ -64,7 +73,7 @@ void InfiniteReach::onTick(C_GameMode* gm)
 		float teleportZ = sin(calcYaw) * cos(calcPitch) * 3.5f;
 		C_MovePlayerPacket* teleportPacket = nullptr;
 
-		if (strcmp(g_Data.getRakNetInstance()->serverIp.getText(),"mco.cubecraft.net") == 0)
+		if (strcmp(g_Data.getRakNetInstance()->serverIp.getText(), "mco.cubecraft.net") == 0)
 		{
 			vec3_t pos = *g_Data.getLocalPlayer()->getPos();
 
@@ -78,10 +87,10 @@ void InfiniteReach::onTick(C_GameMode* gm)
 			g_Data.getClientInstance()->loopbackPacketSender->sendToServer(movePlayerPacket);
 			delete movePlayerPacket;
 		}
-		
+
 		// Attack all entitys in targetList 
 		if (isMulti) {
-			for (int i = 0; i < targetList0.size(); i++) 
+			for (int i = 0; i < targetList0.size(); i++)
 			{
 				vec3_t pos = *targetList0[i]->getPos();
 				teleportPacket = new C_MovePlayerPacket(g_Data.getLocalPlayer(), vec3_t(pos.x - teleportX, pos.y, pos.z - teleportZ));
@@ -96,7 +105,7 @@ void InfiniteReach::onTick(C_GameMode* gm)
 		else
 		{
 			vec3_t pos = *targetList0[0]->getPos();
-			teleportPacket = new C_MovePlayerPacket(g_Data.getLocalPlayer(), vec3_t(pos.x-teleportX,pos.y,pos.z-teleportZ));
+			teleportPacket = new C_MovePlayerPacket(g_Data.getLocalPlayer(), vec3_t(pos.x - teleportX, pos.y, pos.z - teleportZ));
 			g_Data.getClientInstance()->loopbackPacketSender->sendToServer(teleportPacket);
 			g_Data.getCGameMode()->attack(targetList0[0]);
 			delete teleportPacket;
@@ -107,5 +116,4 @@ void InfiniteReach::onTick(C_GameMode* gm)
 		Odelay = 0;
 	}
 }
-
 

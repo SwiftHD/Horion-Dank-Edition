@@ -32,6 +32,7 @@
 #include "Modules/BedFucker.h"
 #include "Modules/NoSlowDown.h"
 #include "Modules/InfiniteReach.h"
+#include "Modules/InfiniteTreasureAura.h"
 #include "Modules/AutoTotem.h"
 #include "Modules/ClickGuiMod.h"
 #include "Modules/ChestStealer.h"
