@@ -17,7 +17,6 @@ const char* TriggerBot::getModuleName()
 {
 	return ("TriggerBot");
 }
-static std::vector <C_Entity*> targetList0;
 void TriggerBot::onTick(C_GameMode* gm)
 {
 	C_LocalPlayer* localPlayer = g_Data.getLocalPlayer();
@@ -25,7 +24,7 @@ void TriggerBot::onTick(C_GameMode* gm)
 	Odelay++;
 	if (target != 0 && Odelay >= delay)
 	{
-		if (target == g_Data.getLocalPlayer()) // Skip Local player
+		if (target == localPlayer) // Skip Local player
 			return;
 
 		if (target == 0)
@@ -39,16 +38,16 @@ void TriggerBot::onTick(C_GameMode* gm)
 
 		if (!Target::isValidTarget(target))
 			return;
+		
+		if (sword && !(localPlayer->itemId == 268 || localPlayer->itemId == 267 || localPlayer->itemId == 272 || localPlayer->itemId == 276 || localPlayer->itemId == 283 /*swords*/ || localPlayer->itemId == 271 || localPlayer->itemId == 275 || localPlayer->itemId == 279 || localPlayer->itemId == 286 || localPlayer->itemId == 258 /*axes*/))
+			return;
 
-		else {
 		if (localPlayer->getEntityTypeId() == target->getEntityTypeId())
 		{
 			localPlayer->swingArm();
 			gm->attack(target);
 		}
-			Odelay = 0;
-		}
+		Odelay = 0;
 	}
 }
-
 

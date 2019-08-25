@@ -1,15 +1,16 @@
 #pragma once
 #include "Module.h"
 
-class TriggerBot : public IModule
+class AutoClicker : public IModule
 {
 private:
 	int delay = 0;
 	int Odelay = 0;
 	bool sword = true;
+	//bool debug = false;
 public:
-	TriggerBot();
-	~TriggerBot();
+	AutoClicker();
+	~AutoClicker();
 
 	// Inherited via IModule
 	virtual const char* getModuleName() override;
