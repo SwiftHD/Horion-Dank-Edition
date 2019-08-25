@@ -7,9 +7,9 @@ class InfiniteTreasureAura : public IModule
 private:
 	int delay = 15;
 	int Odelay = 0;
-	bool isMulti = false;
+	bool isMulti = true;
 public:
-	float range = 15;
+	float range = 100;
 	InfiniteTreasureAura();
 	~InfiniteTreasureAura();
 	// Inherited via IModule
