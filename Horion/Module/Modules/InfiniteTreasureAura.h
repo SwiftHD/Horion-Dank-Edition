@@ -10,6 +10,8 @@ private:
 	bool isMulti = true;
 public:
 	float range = 100;
+	bool player = true;
+	bool treasure = true;
 	InfiniteTreasureAura();
 	~InfiniteTreasureAura();
 	// Inherited via IModule
